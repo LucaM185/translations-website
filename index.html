@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Traduzione docx locale</title>
+  <meta name="description" content="Traduzione docx locale — per sempre. Privata, veloce, sul tuo MiniPc 128GB." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="nav__brand" href="#top" data-i18n="brand">Traduzione docx locale — per sempre.</a>
+    <div class="nav__lang" role="group" aria-label="Language">
+      <button type="button" class="lang-btn is-active" data-lang="it" aria-pressed="true">IT</button>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="nav__pricing" href="#pricing" data-i18n="navPricing">Vedi prezzo</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero__copy">
+        <div class="compare">
+          <div class="compare__col compare__col--before">
+            <p class="compare__label" data-i18n="beforeLabel">Prima</p>
+            <p class="compare__text" data-i18n="beforeText">
+              Sostituisci 30.000 parole a mano oppure copia-incolli da ChatGPT in cloud.
+            </p>
+          </div>
+          <div class="compare__col compare__col--after">
+            <p class="compare__label" data-i18n="afterLabel">Dopo</p>
+            <p class="compare__text" data-i18n-html="afterText">
+              Fai partire una traduzione, 30 minuti dopo controlli. Quanto è accurato?
+              <a href="mailto:hello@example.com?subject=Prova%20gratis%20—%20traduzione%20docx">Prova adesso</a>.
+            </p>
+          </div>
+        </div>
+
+        <p class="hero__note" data-i18n-html="heroNote">
+          Comparazione basata su un documento medio di 150 pagine con paragrafi, tabelle, elenchi, riferimenti.
+          Il testo all’interno delle immagini <strong>non</strong> viene tradotto.
+        </p>
+      </div>
+
+      <a
+        class="btn btn--primary btn--hero"
+        href="mailto:hello@example.com?subject=Prova%20gratis%20—%20traduzione%20docx"
+        data-i18n="ctaHero"
+        data-i18n-mailto-subject="testMailSubject"
+      >Prova adesso</a>
+
+      <div class="hero__visual" aria-hidden="true">
+        <img src="assets/system.jpeg" alt="" class="hero__img" />
+      </div>
+    </section>
+
+    <section class="features" aria-label="Vantaggi" data-i18n-aria="featuresAria">
+      <article class="feature reveal">
+        <div class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+            <path d="M9.5 12l1.8 1.8L15 10" />
+          </svg>
+        </div>
+        <h2 data-i18n="featPrivacyTitle">100% privato</h2>
+        <p data-i18n="featPrivacyText">Tutti i tuoi documenti restano sul tuo MiniPc 128GB. Nessun dato esce mai.</p>
+      </article>
+      <article class="feature reveal">
+        <div class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="8" />
+            <path d="M12 8v4l2.5 1.5" />
+          </svg>
+        </div>
+        <h2 data-i18n="featSpeedTitle">30–60 minuti</h2>
+        <p data-i18n="featSpeedText">Invece che settimane in uno studio esterno. Un intero manuale in meno di un’ora.</p>
+      </article>
+      <article class="feature reveal">
+        <div class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 3h7l4 4v14H7V3z" />
+            <path d="M14 3v4h4" />
+            <path d="M9 12h6M9 15h6M9 18h4" />
+          </svg>
+        </div>
+        <h2 data-i18n="featDocxTitle">Mantiene il docx</h2>
+        <p data-i18n="featDocxText">Elenchi, tabelle, formattazioni, intestazioni, note e immagini restano intatte.</p>
+      </article>
+      <article class="feature reveal">
+        <div class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="5" y="10" width="14" height="10" rx="1.5" />
+            <path d="M8 10V8a4 4 0 0 1 8 0v2" />
+            <circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none" />
+          </svg>
+        </div>
+        <h2 data-i18n="featLdapTitle">Auth LDAP</h2>
+        <p data-i18n="featLdapText">Accesso aziendale con LDAP. Controlli chi entra, senza account esterni.</p>
+      </article>
+    </section>
+
+    <section class="video-section reveal" aria-label="Video">
+      <div class="video-frame">
+        <video
+          id="demo-video"
+          controls
+          playsinline
+          preload="metadata"
+          poster="assets/launch.png"
+        >
+          <source src="assets/demo.mp4" type="video/mp4" />
+        </video>
+        <p class="video-frame__hint" data-i18n="videoHint">Video in arrivo</p>
+      </div>
+    </section>
+
+    <section class="software reveal" aria-label="Software">
+      <p class="section-label" data-i18n="softwareLabel">Document-first</p>
+      <h2 class="section-title" data-i18n="softwareTitle">Traduci. Controlla. Esporta.</h2>
+      <figure class="software__shot">
+        <img src="assets/screenshot.png" alt="Interfaccia di traduzione" data-i18n-alt="imgScreenshot" />
+      </figure>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <p class="section-label" data-i18n="pricingLabel">Prezzo</p>
+      <h2 class="section-title" data-i18n="pricingTitle">Una sola opzione.</h2>
+      <div class="price reveal">
+        <div class="price__info">
+          <h3>MiniPc 128GB</h3>
+          <p data-i18n="pricingDesc">Hardware + sistema di traduzione. Locale. Privato. Pronto all’uso.</p>
+        </div>
+        <div class="price__buy">
+          <p class="price__amount">€&nbsp;9.600</p>
+          <a class="btn btn--primary" href="#PAYMENT_LINK" data-i18n="pricingCta">Paga ora</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n-html="footer">Sviluppato da <strong>Luca Miglioli</strong> — AI Engineer &amp; Full-Stack Developer</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
