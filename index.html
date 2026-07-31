@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Traduzione docx locale</title>
+  <title>Private Translation</title>
   <meta name="description" content="Traduzione docx locale — per sempre. Privata, veloce, sul tuo MiniPc 128GB." />
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="assets/favicon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -12,17 +16,27 @@
 </head>
 <body>
   <header class="nav">
-    <a class="nav__brand" href="#top" data-i18n="brand">Traduzione docx locale — per sempre.</a>
+    <nav class="nav__links" aria-label="Sezioni">
+      <a href="#investment" data-i18n="navPricing">Investimento</a>
+      <a href="#comparison" data-i18n="navComparison">Confronto</a>
+      <a href="#features" data-i18n="navFeatures">Vantaggi</a>
+      <a href="#software" data-i18n="navSoftware">Software</a>
+    </nav>
     <div class="nav__lang" role="group" aria-label="Language">
       <button type="button" class="lang-btn is-active" data-lang="it" aria-pressed="true">IT</button>
       <span class="lang-sep" aria-hidden="true">/</span>
       <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
     </div>
-    <a class="nav__pricing" href="#pricing" data-i18n="navPricing">Vedi prezzo</a>
+    <div class="nav__actions">
+      <a href="#" class="nav__action" data-cta="try" data-i18n="navTry">Prova adesso</a>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <a href="#investment" class="nav__action" data-i18n="navBuy">Acquista</a>
+    </div>
   </header>
 
   <main id="top">
     <section class="hero">
+      <h1 class="hero__title" data-i18n="brand">I tuoi documenti restano tuoi.</h1>
       <div class="hero__copy">
         <div class="compare">
           <div class="compare__col compare__col--before">
@@ -34,8 +48,8 @@
           <div class="compare__col compare__col--after">
             <p class="compare__label" data-i18n="afterLabel">Dopo</p>
             <p class="compare__text" data-i18n-html="afterText">
-              Fai partire una traduzione, 30 minuti dopo controlli. Quanto è accurato?
-              <a href="mailto:hello@example.com?subject=Prova%20gratis%20—%20traduzione%20docx">Prova adesso</a>.
+              Traduzione in 30min e controlla<br>
+              Quanto è accurato? <a href="#comparison">Vedi esempio</a> o <a href="#" data-cta="try">Prova adesso</a>.
             </p>
           </div>
         </div>
@@ -48,17 +62,91 @@
 
       <a
         class="btn btn--primary btn--hero"
-        href="mailto:hello@example.com?subject=Prova%20gratis%20—%20traduzione%20docx"
+        href="#"
+        data-cta="try"
         data-i18n="ctaHero"
-        data-i18n-mailto-subject="testMailSubject"
       >Prova adesso</a>
 
       <div class="hero__visual" aria-hidden="true">
-        <img src="assets/system.jpeg" alt="" class="hero__img" />
+        <picture>
+          <source srcset="assets/system.webp" type="image/webp" />
+          <img src="assets/system.png" alt="" class="hero__img" width="1600" height="900" decoding="async" />
+        </picture>
       </div>
     </section>
 
-    <section class="features" aria-label="Vantaggi" data-i18n-aria="featuresAria">
+    <section class="pricing" id="investment">
+      <p class="section-label" data-i18n="pricingLabel">Investimento</p>
+      <div class="price reveal" aria-label="Investimento e risparmio" data-i18n-aria="pricingBoxAria">
+        <div class="price__info">
+          <h3 data-i18n="pricingProduct">MiniPc 128GB + Traduzioni</h3>
+          <p class="price__desc" data-i18n="pricingDesc">Hardware + sistema di traduzione. Locale. Privato. Pronto all’uso.</p>
+        </div>
+        <div class="price__buy">
+          <div class="price__buy-row">
+            <p class="price__amount">€&nbsp;9.600</p>
+            <a class="btn btn--primary" href="#PAYMENT_LINK" data-i18n="pricingCta">Paga ora</a>
+          </div>
+          <div class="price__payback">
+            <div class="price__payback-line">
+              <span data-i18n="roiPayback">Ritorno sull'investimento in</span>
+              <strong id="roi-docs">22.9</strong>
+              <span class="price__payback-unit" data-i18n="roiDocsUnit">documenti</span>
+            </div>
+            <div class="price__payback-pages">
+              <span data-i18n="roiPrefix">da</span>
+              <span class="roi-dropdown" data-roi="pages">
+                <button type="button" class="roi-dropdown__trigger" id="roi-pages-trigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span id="roi-pages-label">30 pagine</span>
+                  <svg class="roi-dropdown__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                </button>
+                <ul class="roi-dropdown__menu" id="roi-pages-menu" role="listbox">
+                  <li role="option" data-value="30" data-i18n="roiPages30" aria-selected="true">30 pagine</li>
+                  <li role="option" data-value="50" data-i18n="roiPages50">50 pagine</li>
+                  <li role="option" data-value="80" data-i18n="roiPages80">80 pagine</li>
+                  <li role="option" data-value="120" data-i18n="roiPages120">120 pagine</li>
+                  <li role="option" data-value="200" data-i18n="roiPages200">200 pagine</li>
+                </ul>
+              </span>
+              <span data-i18n="roiSuffix">in media</span>
+              <div class="price__assumptions">
+                <button
+                  type="button"
+                  class="price__info-btn"
+                  aria-describedby="roi-assumptions-tip"
+                  data-i18n-aria="roiAssumptionsLabel"
+                  aria-label="Assunzioni"
+                >
+                  <span aria-hidden="true">i</span>
+                </button>
+                <p class="price__assumptions-tip" id="roi-assumptions-tip" role="tooltip" data-i18n="roiAssumptions">
+                  Documento di riferimento 100 pagine = € 2.000; 250 parole/pagina; tariffa € 0,08/parola (equivalente a € 20/ora a 250 parole/ora); 70% di tempo risparmiato.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pdf-compare reveal" id="comparison" aria-label="Confronto documenti" data-i18n-aria="pdfCompareAria">
+      <p class="section-label" data-i18n="pdfCompareLabel">Confronto</p>
+      <h2 class="section-title" data-i18n="pdfCompareTitle">Originale e traduzione, affiancati.</h2>
+      <p class="section-lead" data-i18n="pdfCompareSubtitle">
+        Tutte le caselle di testo all'interno del documento vengono automaticamente estratte e tradotte tenendo conto del contesto circostante. Le immagini vengono lasciate come sono, anche se le immagini contengono scritte, non vengono modificate.
+      </p>
+      <div class="pdf-compare__scroll" id="pdf-compare-scroll">
+        <div class="pdf-compare__header">
+          <p class="pdf-compare__col-label" data-i18n="pdfCompareEn">Inglese</p>
+          <p class="pdf-compare__col-label" data-i18n="pdfCompareIt">Italiano</p>
+        </div>
+        <div class="pdf-compare__rows" id="pdf-compare-rows">
+          <p class="pdf-compare__loading" data-i18n="pdfCompareLoading">Caricamento documenti…</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features" aria-label="Vantaggi" data-i18n-aria="featuresAria">
       <article class="feature reveal">
         <div class="feature__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -88,7 +176,7 @@
           </svg>
         </div>
         <h2 data-i18n="featDocxTitle">Mantiene il docx</h2>
-        <p data-i18n="featDocxText">Elenchi, tabelle, formattazioni, intestazioni, note e immagini restano intatte.</p>
+        <p data-i18n="featDocxText">Elenchi, tabelle, formattazioni, intestazioni, note e immagini restano invariate.</p>
       </article>
       <article class="feature reveal">
         <div class="feature__icon" aria-hidden="true">
@@ -103,7 +191,9 @@
       </article>
     </section>
 
-    <section class="video-section reveal" aria-label="Video">
+    <section class="software reveal" id="software" aria-label="Software">
+      <p class="section-label" data-i18n="softwareLabel">Document-first</p>
+      <h2 class="section-title" data-i18n="softwareTitle">Carica. Traduci. Controlla. Esporta.</h2>
       <div class="video-frame">
         <video
           id="demo-video"
@@ -118,34 +208,13 @@
       </div>
     </section>
 
-    <section class="software reveal" aria-label="Software">
-      <p class="section-label" data-i18n="softwareLabel">Document-first</p>
-      <h2 class="section-title" data-i18n="softwareTitle">Traduci. Controlla. Esporta.</h2>
-      <figure class="software__shot">
-        <img src="assets/screenshot.png" alt="Interfaccia di traduzione" data-i18n-alt="imgScreenshot" />
-      </figure>
-    </section>
-
-    <section class="pricing" id="pricing">
-      <p class="section-label" data-i18n="pricingLabel">Prezzo</p>
-      <h2 class="section-title" data-i18n="pricingTitle">Una sola opzione.</h2>
-      <div class="price reveal">
-        <div class="price__info">
-          <h3>MiniPc 128GB</h3>
-          <p data-i18n="pricingDesc">Hardware + sistema di traduzione. Locale. Privato. Pronto all’uso.</p>
-        </div>
-        <div class="price__buy">
-          <p class="price__amount">€&nbsp;9.600</p>
-          <a class="btn btn--primary" href="#PAYMENT_LINK" data-i18n="pricingCta">Paga ora</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
     <p data-i18n-html="footer">Sviluppato da <strong>Luca Miglioli</strong> — AI Engineer &amp; Full-Stack Developer</p>
   </footer>
 
+  <script src="pdf-compare.js" type="module"></script>
   <script src="script.js"></script>
 </body>
 </html>
