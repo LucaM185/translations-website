@@ -22,11 +22,13 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 4.5rem;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: clip;
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 1.0625rem;
@@ -364,7 +366,7 @@ a {
 
 .pdf-compare__header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 0.75rem;
   position: sticky;
   top: 0;
@@ -395,13 +397,14 @@ a {
 
 .pdf-compare__row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 0.75rem;
   align-items: start;
 }
 
 .pdf-compare__page {
   margin: 0;
+  min-width: 0;
   overflow: hidden;
   background: #fff;
   border: 1px solid rgba(244, 239, 230, 0.12);
@@ -410,6 +413,7 @@ a {
 .pdf-compare__page canvas {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
