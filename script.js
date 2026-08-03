@@ -189,7 +189,7 @@
   const REF_COST = 2000;
   const COST_PER_PAGE = REF_COST / REF_PAGES;
   const TIME_SAVED = 0.7;
-  const ROI_DEFAULT = { pages: 30 };
+  const ROI_DEFAULT = { pages: 120 };
 
   let currentLang = "it";
   let roiSelection = { ...ROI_DEFAULT };
