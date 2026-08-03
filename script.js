@@ -13,7 +13,7 @@
         "Sostituisci 30.000 parole a mano oppure copia-incolli da ChatGPT in cloud.",
       afterLabel: "Dopo",
       afterText:
-        'Traduzione in 30min e controlla<br>Quanto è accurato? <a href="__EXAMPLE_URL__">Vedi esempio</a> o <a href="__TRY_URL__" data-cta="try">Prova adesso</a>.',
+        'Traduzione in 30min e controlla.<br>Quanto è accurato? <a href="__EXAMPLE_URL__">Vedi esempio</a> o <a href="__TRY_URL__" data-cta="try">Prova adesso</a>.',
       heroNote:
         "Comparazione basata su un documento medio di 150 pagine con paragrafi, tabelle, elenchi, riferimenti. Il testo all’interno delle immagini <strong>non</strong> viene tradotto.",
       pdfCompareAria: "Confronto documenti",
@@ -79,7 +79,7 @@
         "Replace 30,000 words by hand or copy-paste from ChatGPT in the cloud.",
       afterLabel: "After",
       afterText:
-        'Translation in 30min and review<br>How accurate is it? <a href="__EXAMPLE_URL__">See example</a> or <a href="__TRY_URL__" data-cta="try">Try now</a>.',
+        'Translation in 30min and review.<br>How accurate is it? <a href="__EXAMPLE_URL__">See example</a> or <a href="__TRY_URL__" data-cta="try">Try now</a>.',
       heroNote:
         "Comparison based on a typical 150-page document with paragraphs, tables, lists, and references. Text inside images is <strong>not</strong> translated.",
       pdfCompareAria: "Document comparison",
