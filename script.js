@@ -6,14 +6,14 @@
       navComparison: "Confronto",
       navFeatures: "Vantaggi",
       navSoftware: "Software",
-      navTry: "Prova adesso",
+      navTry: "Richiedi demo",
       navBuy: "Acquista",
       beforeLabel: "Prima",
       beforeText:
         "Sostituisci 30.000 parole a mano oppure copia-incolli da ChatGPT in cloud.",
       afterLabel: "Dopo",
       afterText:
-        'Traduzione in 30min e controlla.<br>Quanto è accurato? <a href="__EXAMPLE_URL__">Vedi esempio</a> o <a href="__TRY_URL__" data-cta="try">Prova adesso</a>.',
+        'Traduzione in 30min e controlla.<br>Quanto è accurato? <a href="__EXAMPLE_URL__">Vedi esempio</a> o <a href="__TRY_URL__" data-cta="try">Richiedi demo</a>.',
       heroNote:
         "Comparazione basata su un documento medio di 150 pagine con paragrafi, tabelle, elenchi, riferimenti. Il testo all’interno delle immagini <strong>non</strong> viene tradotto.",
       pdfCompareAria: "Confronto documenti",
@@ -24,7 +24,7 @@
       pdfCompareEn: "Inglese",
       pdfCompareIt: "Italiano",
       pdfCompareLoading: "Caricamento documenti…",
-      ctaHero: "Prova adesso",
+      ctaHero: "Richiedi demo",
       featuresAria: "Vantaggi",
       featPrivacyTitle: "100% privato",
       featPrivacyText:
@@ -72,14 +72,14 @@
       navComparison: "Comparison",
       navFeatures: "Features",
       navSoftware: "Software",
-      navTry: "Try now",
+      navTry: "Request demo",
       navBuy: "Buy",
       beforeLabel: "Before",
       beforeText:
         "Replace 30,000 words by hand or copy-paste from ChatGPT in the cloud.",
       afterLabel: "After",
       afterText:
-        'Translation in 30min and review.<br>How accurate is it? <a href="__EXAMPLE_URL__">See example</a> or <a href="__TRY_URL__" data-cta="try">Try now</a>.',
+        'Translation in 30min and review.<br>How accurate is it? <a href="__EXAMPLE_URL__">See example</a> or <a href="__TRY_URL__" data-cta="try">Request demo</a>.',
       heroNote:
         "Comparison based on a typical 150-page document with paragraphs, tables, lists, and references. Text inside images is <strong>not</strong> translated.",
       pdfCompareAria: "Document comparison",
@@ -90,7 +90,7 @@
       pdfCompareEn: "English",
       pdfCompareIt: "Italian",
       pdfCompareLoading: "Loading documents…",
-      ctaHero: "Try now",
+      ctaHero: "Request demo",
       featuresAria: "Features",
       featPrivacyTitle: "100% private",
       featPrivacyText:
@@ -134,54 +134,18 @@
     },
   };
 
-  // Landing page → product handoff
-  const PRODUCT_URL = "http://167.233.160.162:7633/";
-  const CODE_PARAM = "code";
-  const CODE_STORAGE_KEY = "customerCode";
-  const CODE_PATTERN = /^[a-zA-Z0-9_-]{1,64}$/;
+  const DEMO_URL =
+    "https://www.linkedin.com/feed/update/urn:li:share:7490408785249902592/";
 
-  const normalizeCode = (raw) => {
-    if (raw == null) return null;
-    const code = String(raw).trim();
-    return CODE_PATTERN.test(code) ? code : null;
-  };
-
-  const readCodeFromUrl = () => {
-    const params = new URLSearchParams(window.location.search);
-    return normalizeCode(params.get(CODE_PARAM));
-  };
-
-  const getCustomerCode = () => {
-    const fromUrl = readCodeFromUrl();
-    if (fromUrl) {
-      sessionStorage.setItem(CODE_STORAGE_KEY, fromUrl);
-      return fromUrl;
-    }
-    return normalizeCode(sessionStorage.getItem(CODE_STORAGE_KEY));
-  };
-
-  const buildTryUrl = () => {
-    const url = new URL(PRODUCT_URL);
-    const code = getCustomerCode();
-    if (code) url.searchParams.set(CODE_PARAM, code);
-    return url.toString();
-  };
+  const buildTryUrl = () => DEMO_URL;
 
   const applyTryLinks = () => {
     const href = buildTryUrl();
     document.querySelectorAll('[data-cta="try"]').forEach((el) => {
       el.href = href;
+      el.target = "_blank";
+      el.rel = "noopener noreferrer";
     });
-  };
-
-  const captureInviteCode = () => {
-    const code = readCodeFromUrl();
-    if (!code) return;
-    sessionStorage.setItem(CODE_STORAGE_KEY, code);
-    const url = new URL(window.location.href);
-    url.searchParams.delete(CODE_PARAM);
-    const next = `${url.pathname}${url.search}${url.hash}`;
-    window.history.replaceState({}, "", next || url.pathname);
   };
 
   const INVESTMENT = 9600;
@@ -366,7 +330,6 @@
     btn.addEventListener("click", () => setLang(btn.dataset.lang));
   });
 
-  captureInviteCode();
   initRoi();
 
   const saved = localStorage.getItem("lang");
